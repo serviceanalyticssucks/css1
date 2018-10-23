@@ -1,0 +1,83 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="bower_components/requirejs/require.js"></script>
+
+<script>
+
+var eventListener = function(oRotation){console.log(oRotation);};
+
+var influent = require('influent');
+
+influent
+    .createHttpClient({
+        server: [
+            {
+                protocol: "http",
+                host:     "localhost",
+                port:     8086
+            }
+        ],
+        username: "",
+        password: "",
+        
+        database: "training"
+    })
+    .then(function(client) {
+        client
+            .query("show databases")
+            .then(function(result) {
+                // ...
+            });
+
+        // super simple point
+        client.write({ key: "myseries", value: 10 });
+            
+        // more explicit point
+        client
+            .write({
+                key: "myseries",
+                tags: {
+                    some_tag: "sweet"
+                },
+                fields: {
+                    some_field: 10
+                },
+                timestamp: Date.now()
+            })
+            .then(function() {
+                // ...
+            });
+    });
+
+function addMotionListener(){
+	// Get the checkbox
+ 	 var checkBox = document.getElementById("myToggle");
+
+	  // If the checkbox is checked, display the output text
+	  if (checkBox.checked == true){
+		if (window.DeviceOrientationEvent) {
+		  window.addEventListener('deviceorientation', eventListener, false);
+		} else {
+		  checkBox.checked=false;
+		}
+	  } else {
+	    window.removeEventListener('deviceorientation', eventListener);
+	  }
+}
+
+</script>
+</head>
+<body>
+  <form>
+	<!-- Rounded switch -->
+	<label class="switch">
+  		<input type="checkbox" id="myToggle" onclick="addMotionListener()">
+  		<span class="slider round"></span>
+	</label> <br/>
+	<input type="text"/>
+  </form>
+</body>
+
+</html>
