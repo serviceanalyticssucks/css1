@@ -141,21 +141,18 @@ document.getElementById('record').onchange = function() {
 	}
 }
 
-if (window.DeviceOrientationEvent && window.DeviceMotionEvent) {
+if (window.DeviceOrientationEvent) {
   window.addEventListener('deviceorientation', function(rotation) {
 		// Read and store all acceleration and rotation values.
 		
 		c.alpha.push(rotation.alpha);
 		c.beta.push(rotation.beta);
 		c.gamma.push(rotation.gamma);
+	//	c.acc_x.push(acceleration.x);
+	//	c.acc_y.push(acceleration.y);
+	//	c.acc_z.push(acceleration.z);
 	  	c.n++;
 	}, false);
-window.addEventListener('devicemotion', function(acceleration) {
-		c.acc_x.push(acceleration.x);
-		c.acc_y.push(acceleration.y);
-		c.acc_z.push(acceleration.z);
-	}, false);
-
 } else {
   document.getElementById("debug").innerHTML = "Not supported."
 }
@@ -167,7 +164,7 @@ require(["bower_components/influent/dist/influent"], function (influent) {
 			server: [
 				{
 					protocol: "http",
-					host:     "129.13.2.88",
+					host:     "129.13.16.48",
 					port:     8086
 				}
 			],
@@ -209,9 +206,6 @@ require(["bower_components/influent/dist/influent"], function (influent) {
 							gamma: mean(c0.gamma),
 							beta: mean(c0.beta),
 							alpha: mean(c0.alpha),
-							x: mean(c0.acc_x),
-							y: mean(c0.acc_y),
-							z: mean(c0.acc_z)
 						},
 						timestamp: (Date.now() * 1000000)
 					})
