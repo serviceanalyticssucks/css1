@@ -150,7 +150,8 @@ if (window.DeviceOrientationEvent && window.DeviceMotionEvent) {
 		c.gamma.push(rotation.gamma);
 	  	c.n++;
 	}, false);
-window.addEventListener('devicemotion', function(acceleration) {
+window.addEventListener('devicemotion', function(accEvent) {
+		var acceleration = accEvent.acceleration;
 		c.acc_x.push(acceleration.x);
 		c.acc_y.push(acceleration.y);
 		c.acc_z.push(acceleration.z);
