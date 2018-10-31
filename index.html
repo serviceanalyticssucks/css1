@@ -3,7 +3,13 @@
 
 	<script src="bower_components/requirejs/require.js"></script>
 	<link rel="stylesheet" href="style.css">
-	
+	<script src="js/jactivity.js"></script>
+	<script src="js/deviceorientation.js"></script>
+	<script src="js/devicemotion.js"></script>
+	<script src="js/transformer.js"></script>
+	<script src="js/decisiontree_engine.js"></script>
+	<script src="js/randomforest_engine.js"></script>
+	<script src="js/validation.js"></script>
 	</head>
 <body>
 
@@ -60,34 +66,8 @@
 		</tr>
 	</table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="activity" id="activity"> Activity is not being tracked
+</div>
 
 <script>
 
@@ -255,6 +235,35 @@ function mean(values) {
 	var sum = values.reduce(function(a, b) { return a + b; });
 	return Math.floor(sum * 1000 / values.length);
 }
+
+var lastClass;
+	var activityCallback = function(activity) {
+		console.log("react to classification which classify to: " + activity.result);
+
+		var useRobustMode = document.getElementById('robust').checked;
+		if ((activity.result === lastClass || lastClass == null) || !useRobustMode) {
+			document.getElementById("activity").innerHTML = activity.result;
+			switch (activity.result) {
+				case "walking":
+					document.body.style.fontSize = "1.2em";
+					document.getElementById("activity").style.fontWeight = "bold";
+					document.getElementById("activity").style.color = "red";
+					break;
+				case "sitting":
+					document.body.style.fontSize = "1.0em";
+					document.getElementById("activity").style.fontWeight = "normal";
+					document.getElementById("activity").style.color = "blue";
+					break;
+				default:
+					document.getElementById("activity").style.fontSize = "1.0em";
+					document.getElementById("activity").style.fontWeight = "normal";
+					document.getElementById("activity").style.color = "black";
+			}
+		}
+		lastClass = activity.result;
+	}
+	//initialize classifier
+	var activityClassifier = new jActivity("", [deviceorientation, devicemotion], activityCallback, ["walking", "sitting"], 1000);
 
 </script>
 </body>
