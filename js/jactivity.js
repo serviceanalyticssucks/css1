@@ -49,7 +49,7 @@ class jActivity {
       //ajax request to get classifier as pmml
       $.ajax({
         type: "GET",
-        url: (this.base + "model/classifier.pmml"),
+        url: (this.base + "model/parRF-classifier.pmml"),
         success: onSuccess,
         error: onError,
       })
@@ -75,7 +75,7 @@ class jActivity {
             }
           }
           console.log("Collected features: ", features);
-          scope.callback(evaluateRandomForest(scope.classifier, features))
+          scope.callback(scope.classifier.evaluate(features))
 
           for (var sensor in scope.sensors) {
             sensors[sensor].flush()
