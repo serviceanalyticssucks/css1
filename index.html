@@ -3,11 +3,10 @@
 
 	<script src="bower_components/requirejs/require.js"></script>
 	<link rel="stylesheet" href="style.css">
+	
 	</head>
+<body>
 
-<br />
-
-<form>
 	<b>Record:</b><br>
 	<label class="switch">
 		<input type="checkbox" id="record">
@@ -61,6 +60,33 @@
 		</tr>
 	</table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -169,7 +195,7 @@ require(["bower_components/influent/dist/influent"], function (influent) {
 			server: [
 				{
 					protocol: "http",
-					host:     "129.13.2.88",
+					host:     "129.13.17.46",
 					port:     8086
 				}
 			],
@@ -231,19 +257,5 @@ function mean(values) {
 }
 
 </script>
-
-</html>
-<head>
-	<script>
-		var influx;
-requirejs(["bower_components/influent/dist/influent"],function(influent)
-	{
-		influx=influent;
-	}
-)
-	</script>
-</head>
-<body>
-	test7
 </body>
 </html>
