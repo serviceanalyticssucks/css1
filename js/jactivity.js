@@ -49,7 +49,7 @@ class jActivity {
       //ajax request to get classifier as pmml
       $.ajax({
         type: "GET",
-        url: (this.base + "models/classifier.pmml"),
+        url: (this.base + "model/classifier.pmml"),
         success: onSuccess,
         error: onError,
       })
