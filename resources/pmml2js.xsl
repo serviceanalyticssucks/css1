@@ -28,7 +28,7 @@
 	<xsl:if test="position() != last()">
 			Array(
 		</xsl:if>
-			<xsl:apply-templates select="pmml:Node"/>
+			<xsl:apply-templates/>
 		<xsl:if test="position() != last()">
 				<xsl:text>,</xsl:text>
 		</xsl:if>
