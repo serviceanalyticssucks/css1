@@ -25,7 +25,7 @@
 	<xsl:template match="pmml:Segment">
 	
 		/**Segment <xsl:value-of select="@id"/>**/
-	<xsl:if test="position() != last()">
+	<xsl:if test="position() = 1">
 			Array(
 		</xsl:if>
 			<xsl:apply-templates/>
