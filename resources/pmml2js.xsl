@@ -22,7 +22,20 @@
 		<xsl:apply-templates/>
 	</xsl:template>
 
-	<xsl:template match="pmml:Segment">/**Segment <xsl:value-of select="@id"/>**/<xsl:apply-templates/></xsl:template>
+	<xsl:template match="pmml:Segment">
+	
+		/**Segment <xsl:value-of select="@id"/>**/
+	<xsl:if test="position() != last()">
+			Array(
+		</xsl:if>
+			<xsl:apply-templates select="pmml:Node"/>
+		<xsl:if test="position() != last()">
+				<xsl:text>,</xsl:text>
+		</xsl:if>
+		<xsl:if test="position() = last() and position() != 1">
+				<xsl:text>)</xsl:text>
+		</xsl:if>
+	</xsl:template>
 
 	<xsl:template match="pmml:True">
 		true
