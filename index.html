@@ -244,8 +244,7 @@ var lastClass;
 	var activityCallback = function(activity) {
 		console.log("react to classification which classify to: " + activity.result);
 
-		var useRobustMode = document.getElementById('robust').checked;
-		if ((activity.result === lastClass || lastClass == null) || !useRobustMode) {
+		if (activity.result === lastClass || lastClass == null) {
 			document.getElementById("activity").innerHTML = activity.result;
 			switch (activity.result) {
 				case "walking":
