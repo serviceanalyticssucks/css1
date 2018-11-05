@@ -4,13 +4,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.1.1/math.js"></script>
 	<script src="bower_components/requirejs/require.js"></script>
 	<link rel="stylesheet" href="style.css">
-	<script src="js/jactivity.js"></script>
-	<script src="js/deviceorientation.js"></script>
-	<script src="js/devicemotion.js"></script>
-	<script src="js/transformer.js"></script>
-	<script src="js/decisiontree_engine.js"></script>
-	<script src="js/randomforest_engine.js"></script>
-	<script src="js/validation.js"></script>
 	</head>
 <body>
 
@@ -66,8 +59,6 @@
 			<td id="z"></td>
 		</tr>
 	</table>
-</div>
-<div class="activity" id="activity"> Activity is not being tracked
 </div>
 
 <script>
@@ -239,35 +230,6 @@ function mean(values) {
 function joinDimensions(dim1, meanDim1, dim2, meanDim2, dim3, meanDim3) {
   return Math.sqrt((dim1 - meanDim1)**2+(dim2 - meanDim2)**2+(dim3 - meanDim3)**2)
 }
-	
-var lastClass;
-	var activityCallback = function(activity) {
-		console.log("react to classification which classify to: " + activity.result);
-
-		if (activity.result === lastClass || lastClass == null) {
-			document.getElementById("activity").innerHTML = activity.result;
-			switch (activity.result) {
-				case "walking":
-					document.body.style.fontSize = "1.2em";
-					document.getElementById("activity").style.fontWeight = "bold";
-					document.getElementById("activity").style.color = "red";
-					break;
-				case "sitting":
-					document.body.style.fontSize = "1.0em";
-					document.getElementById("activity").style.fontWeight = "normal";
-					document.getElementById("activity").style.color = "blue";
-					break;
-				default:
-					document.getElementById("activity").style.fontSize = "1.0em";
-					document.getElementById("activity").style.fontWeight = "normal";
-					document.getElementById("activity").style.color = "black";
-			}
-		}
-		lastClass = activity.result;
-	}
-	//initialize classifier
-	var activityClassifier = new jActivity("", [deviceorientation, devicemotion], activityCallback, ["walking", "sitting"], 1000);
-
 </script>
 </body>
 </html>
