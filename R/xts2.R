@@ -133,6 +133,14 @@ data <- na.omit(data)
 
 featurePlot(x = data[, 6:10], y = data$label, plot = "pairs", auto.key = list(columns = 3))
 
+#prep <- preProcess(data[,-c(1,2)],method=c("pca"))
+#data_pca=cbind(data,predict(prep,data[,-c(1,2)]))
+#set.seed(1)
+#holdout <- createDataPartition(data_pca$label, p = .2, list = FALSE, times = 1)
+#train<-data_pca[-holdout,]
+#test<-data_pca[holdout,]
+#trc <- trainControl(method = "cv")
+#model=train(train[,-c(1,2)], train[,"label"], method = "rpart1SE", trControl = trc)
 
 subjects<-levels(factor(data$subject))
 data_subject <- vector(mode = "list", length = nlevels(data$subject))
