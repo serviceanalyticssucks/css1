@@ -14,10 +14,42 @@
 <div id="alert">Please pay attention to your surroundings!</div>
 
 <div class="content">
+	<h1 id="header">Hörsaal am Fasanengarten (50.34)</h1>
+
+	<p id="description">Der HsAf ist so alt wie Stein. Stein wurde am HSaf erfunden<br/>
+	Fun fact: Asche zu Asche. Stein zu Hsaf.</p>
 	
-	<div class="activity" id="activity">
-	 Activity is not being tracked
-	</div>
+	<table id="extendedTable">
+		<tr>
+			<td>Aktuelle Vorlesung</td>
+			<td>Höhere Mathematik I (9:45-11:15)</td>		
+		</tr>
+
+		<tr>
+			<td>Nachste Vorlesung</td>
+			<td>Robotik I (11:30-13:00)</td>		
+		</tr>
+		<tr>
+			<td>Sitzplätze</td>
+			<td>654</td>		
+		</tr>
+		<tr>
+			<td>Rollstuhltauglich</td>
+			<td>ja</td>		
+		</tr>
+	<table>	
+	<table id="shortTable">
+		<tr>
+			<td>Aktuelle Vorlesung</td>
+			<td>Höhere Mathematik I (9:45-11:15)</td>		
+		</tr>
+
+	<table>	
+
+
+
+	<!--<div class="activity" id="activity">Activity is not being tracked</div>-->
+
 	<div class="nav">
 	 <a href="/record.html">Record your own Data</a>
 	</div>
@@ -44,17 +76,19 @@ var lastClass;
 					document.getElementById("activity").style.fontSize = "2.8em";
 					document.getElementById("activity").style.fontWeight = "bold";
 					document.getElementById("alert").style.visibility = "visible";
-					
-					break;
-				case "sitting":
-					document.getElementById("activity").style.fontSize = "2.3em";
-					document.getElementById("activity").style.fontWeight = "normal";
-					document.getElementById("alert").style.visibility = "hidden";
+					document.getElementById("description").style.display = "none";
+					document.getElementById("extendedTable").style.display = "none";
+					document.getElementById("shortTable").style.display = "block";
+					document.getElementById("header").style.fontSize = "3.3em";
 					break;
 				default:
 					document.getElementById("activity").style.fontSize = "2.3em";
 					document.getElementById("activity").style.fontWeight = "normal";
 					document.getElementById("alert").style.visibility = "hidden";
+					document.getElementById("description").style.display = "block";
+					document.getElementById("extendedTable").style.display = "block";
+					document.getElementById("shortTable").style.display = "none";
+					document.getElementById("header").style.fontSize = "2.8em";
 
 			}
 		}

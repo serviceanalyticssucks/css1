@@ -72,22 +72,38 @@ input:checked + .slider:before {
 	height:100%;
 }
 
-body{
-font-size:2em;
-text-align:center;
-}
 
 .nav {
-
 bottom: 20px;
 position: absolute;
+font-size:2em;
 
 }
 
 #alert{
-
+font-size:2em;
+text-align:center;
 color:#FF0000;
 visibility:hidden;
+}
+
+table{
+margin:0 auto;
+}
+
+table#shortTable{
+font-weight:bold;
+font-size:2.8em;
+display:none;
+}
+
+table#extendedTable{
+font-weight:normal;
+font-size:2.3em;
+}
+
+p{
+text-align:left;
 }
 
 
