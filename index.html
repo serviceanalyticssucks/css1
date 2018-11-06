@@ -11,8 +11,12 @@
 	<script src="js/validation.js"></script>
 	</head>
 <body>
+
 <div class="activity" id="activity">
  Activity is not being tracked
+</div>
+<div class="nav">
+ <a href="/record.html">Record your own Data</a>
 </div>
 
 <script>
@@ -34,16 +38,16 @@ var lastClass;
 					document.getElementById("activity").style.textAlign="center";
 			switch (activity.result) {
 				case "walking":
-					document.body.style.fontSize = "3em";
+					document.body.style.fontSize = "2.3em";
 					document.getElementById("activity").style.fontWeight = "bold";
 					
 					break;
 				case "sitting":
-					document.body.style.fontSize = "2.5em";
+					document.body.style.fontSize = "1.8em";
 					document.getElementById("activity").style.fontWeight = "normal";
 					break;
 				default:
-					document.getElementById("activity").style.fontSize = "2.5em";
+					document.getElementById("activity").style.fontSize = "1.8em";
 					document.getElementById("activity").style.fontWeight = "normal";
 
 			}
