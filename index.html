@@ -48,7 +48,7 @@
 
 
 
-	<!--<div class="activity" id="activity">Activity is not being tracked</div>-->
+	<div class="activity" id="activity">Activity is not being tracked</div>
 
 	<div class="nav">
 	 <a href="/record.html">Record your own Data</a>
@@ -69,7 +69,7 @@ var lastClass;
 	var activityCallback = function(activity) {
 		console.log("react to classification which classify to: " + activity.result);
 		if (activity.result === lastClass || lastClass == null) {
-					//document.getElementById("activity").innerHTML = activity.result;
+					document.getElementById("activity").innerHTML = activity.result;
 					
 			switch (activity.result) {
 				case "walking":
