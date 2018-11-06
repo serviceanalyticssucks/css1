@@ -100,6 +100,7 @@ display:none;
 table#extendedTable{
 font-weight:normal;
 font-size:2em;
+display:block;
 }
 
 p{
