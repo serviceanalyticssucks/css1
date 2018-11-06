@@ -108,7 +108,9 @@ font-size:1.5em;
 }
 
 #header{
-font-size:2.8em:
+font-size:2.8em;
+text-align:center;
+font-weight:bold;
 
 }
 .attribute{
