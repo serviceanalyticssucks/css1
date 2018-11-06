@@ -22,12 +22,12 @@
 	<table id="extendedTable">
 		<tr>
 			<td class="attribute">Aktuelle Vorlesung:  </td>
-			<td>Höhere Mathematik I (9:45-11:15)</td>		
+			<td>Höhere Mathematik I <br/>(9:45-11:15)</td>		
 		</tr>
 
 		<tr>
 			<td class="attribute">Nachste Vorlesung:</td>
-			<td>Robotik I (11:30-13:00)</td>		
+			<td>Robotik I <br/>(11:30-13:00)</td>		
 		</tr>
 		<tr>
 			<td class="attribute">Sitzplätze:</td>
@@ -40,8 +40,8 @@
 	<table>	
 	<table id="shortTable">
 		<tr>
-			<td class="attribute">Aktuelle Vorlesung:   </td>
-			<td>Höhere Mathematik I (9:45-11:15)</td>		
+			<td>Aktuelle Vorlesung:   </td>
+			<td><b>Höhere Mathematik I</b> <br/>(9:45-11:15)</td>		
 		</tr>
 
 	<table>	
@@ -79,7 +79,6 @@ var lastClass;
 					document.getElementById("description").style.display = "none";
 					document.getElementById("extendedTable").style.display = "none";
 					document.getElementById("shortTable").style.display = "block";
-					document.getElementById("header").style.fontSize = "3.3em";
 					break;
 				default:
 					document.getElementById("activity").style.fontSize = "2.3em";
@@ -88,7 +87,6 @@ var lastClass;
 					document.getElementById("description").style.display = "block";
 					document.getElementById("extendedTable").style.display = "block";
 					document.getElementById("shortTable").style.display = "none";
-					document.getElementById("header").style.fontSize = "2.8em";
 
 			}
 		}
