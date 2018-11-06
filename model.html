@@ -11,7 +11,8 @@
 	<script src="js/validation.js"></script>
 	</head>
 <body>
-<div class="activity" id="activity"> Activity is not being tracked
+<div class="activity" id="activity">
+ Activity is not being tracked
 </div>
 
 <script>
@@ -27,22 +28,24 @@ var lastClass;
 	var activityCallback = function(activity) {
 		console.log("react to classification which classify to: " + activity.result);
 		if (activity.result === lastClass || lastClass == null) {
-			document.getElementById("activity").innerHTML = activity.result;
+					document.getElementById("activity").innerHTML = activity.result;
+					document.getElementById("activity").style.width=" 50%";
+					document.getElementById("activity").style.margin="0 auto";
+					document.getElementById("activity").style.text-align="center";
 			switch (activity.result) {
 				case "walking":
-					document.body.style.fontSize = "1.2em";
+					document.body.style.fontSize = "3em";
 					document.getElementById("activity").style.fontWeight = "bold";
-					document.getElementById("activity").style.color = "red";
+					
 					break;
 				case "sitting":
-					document.body.style.fontSize = "1.0em";
+					document.body.style.fontSize = "2.5em";
 					document.getElementById("activity").style.fontWeight = "normal";
-					document.getElementById("activity").style.color = "blue";
 					break;
 				default:
-					document.getElementById("activity").style.fontSize = "1.0em";
+					document.getElementById("activity").style.fontSize = "2.5em";
 					document.getElementById("activity").style.fontWeight = "normal";
-					document.getElementById("activity").style.color = "black";
+
 			}
 		}
 		lastClass = activity.result;

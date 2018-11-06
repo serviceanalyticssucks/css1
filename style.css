@@ -60,3 +60,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.activity{
+	font-size:2.5em;
+	
+}
