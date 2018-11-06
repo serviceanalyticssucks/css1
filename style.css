@@ -85,8 +85,8 @@ position: absolute;
 }
 
 #alert{
-width=100%:
-color:red;
+
+color:#FF0000;
 visibility:hidden;
 }
 
