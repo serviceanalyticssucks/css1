@@ -62,7 +62,7 @@ input:checked + .slider:before {
 }
 
 .activity{
-	font-size:1.8em;
+	font-size:2em;
 }
 
 .content {
@@ -72,7 +72,9 @@ input:checked + .slider:before {
 }
 
 .nav {
+font-size:2em;
 bottom: 20px;
+position: absolute;
 
 }
 
