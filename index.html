@@ -14,7 +14,7 @@
 <div id="alert">Please pay attention to your surroundings!</div>
 
 <div class="content">
-	<h1 id="header">Hörsaal am Fasanengarten (50.34)</h1>
+	<p id="header">Hörsaal am Fasanengarten (50.34)</p>
 
 	<p id="description">Der Hörsaal am Fasanengarten ist so alt wie Stein. Stein wurde am Hörsaal am Fasanengarten erfunden<br/>
 	Fun fact: Asche zu Asche. Stein zu Hörsaal am Fasanengarten.</p>
@@ -22,12 +22,13 @@
 	<table id="extendedTable">
 		<tr>
 			<td class="attribute">Aktuelle Vorlesung:  </td>
-			<td>Höhere Mathematik I <br/>(9:45-11:15)</td>		
+			<td>Höhere Mathematik I</td>		
 		</tr>
+		<tr>
 
 		<tr>
 			<td class="attribute">Nachste Vorlesung:</td>
-			<td>Robotik I <br/>(11:30-13:00)</td>		
+			<td>Robotik I</td>		
 		</tr>
 		<tr>
 			<td class="attribute">Sitzplätze:</td>
@@ -40,15 +41,15 @@
 	<table>	
 	<table id="shortTable">
 		<tr>
-			<td>Aktuelle Vorlesung:   </td>
-			<td><b>Höhere Mathematik I</b> <br/>(9:45-11:15)</td>		
+			<td>Aktuelle Vorlesung:</td>
+			<td><b>Höhere Mathematik I</b></td>		
 		</tr>
 
 	<table>	
 
 
 
-	<div class="activity" id="activity">Activity is not being tracked</div>
+	<!--<div class="activity" id="activity">Activity is not being tracked</div>-->
 
 	<div class="nav">
 	 <a href="/record.html">Record your own Data</a>
@@ -69,20 +70,20 @@ var lastClass;
 	var activityCallback = function(activity) {
 		console.log("react to classification which classify to: " + activity.result);
 		if (activity.result === lastClass || lastClass == null) {
-					document.getElementById("activity").innerHTML = activity.result;
+					//document.getElementById("activity").innerHTML = activity.result;
 					
 			switch (activity.result) {
 				case "walking":
-					document.getElementById("activity").style.fontSize = "2.8em";
-					document.getElementById("activity").style.fontWeight = "bold";
+					//document.getElementById("activity").style.fontSize = "2.8em";
+					//document.getElementById("activity").style.fontWeight = "bold";
 					document.getElementById("alert").style.visibility = "visible";
 					document.getElementById("description").style.display = "none";
 					document.getElementById("extendedTable").style.display = "none";
 					document.getElementById("shortTable").style.display = "block";
 					break;
 				default:
-					document.getElementById("activity").style.fontSize = "2.3em";
-					document.getElementById("activity").style.fontWeight = "normal";
+					//document.getElementById("activity").style.fontSize = "2.3em";
+					//document.getElementById("activity").style.fontWeight = "normal";
 					document.getElementById("alert").style.visibility = "hidden";
 					document.getElementById("description").style.display = "block";
 					document.getElementById("extendedTable").style.display = "block";
