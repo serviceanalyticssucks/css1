@@ -11,8 +11,10 @@
 	<script src="js/validation.js"></script>
 	</head>
 <body>
+<div id="alert">Please pay attention to your surroundings!</div>
 
 <div class="content">
+	
 	<div class="activity" id="activity">
 	 Activity is not being tracked
 	</div>
@@ -41,15 +43,18 @@ var lastClass;
 				case "walking":
 					document.getElementById("activity").style.fontSize = "2.8em";
 					document.getElementById("activity").style.fontWeight = "bold";
+					document.getElementById("alert").style.visibility = "visible";
 					
 					break;
 				case "sitting":
 					document.getElementById("activity").style.fontSize = "2.3em";
 					document.getElementById("activity").style.fontWeight = "normal";
+					document.getElementById("alert").style.visibility = "hidden";
 					break;
 				default:
 					document.getElementById("activity").style.fontSize = "2.3em";
 					document.getElementById("activity").style.fontWeight = "normal";
+					document.getElementById("alert").style.visibility = "hidden";
 
 			}
 		}

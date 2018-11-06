@@ -72,11 +72,22 @@ input:checked + .slider:before {
 	height:100%;
 }
 
-.nav {
+body{
 font-size:2em;
+text-align:center;
+}
+
+.nav {
+
 bottom: 20px;
 position: absolute;
 
+}
+
+#alert{
+width=100%:
+color:red;
+visibility:hidden;
 }
 
 
