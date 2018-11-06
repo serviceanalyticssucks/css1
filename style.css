@@ -66,7 +66,7 @@ input:checked + .slider:before {
 }
 
 .content {
-	width:50%;
+	width:80%;
 	margin:0 auto;
 	text-align:center;
 	height:100%;
@@ -92,18 +92,29 @@ margin:0 auto;
 }
 
 table#shortTable{
-font-weight:bold;
-font-size:2.8em;
+
+font-size:2.5em;
 display:none;
 }
 
 table#extendedTable{
 font-weight:normal;
-font-size:2.3em;
+font-size:2em;
 }
 
 p{
 text-align:left;
+font-size:1.5em;
 }
+
+#header{
+font-size:2.8em:
+
+}
+.attribute{
+font-weight:bold;
+font-size:0.8em;
+}
+
 
 
