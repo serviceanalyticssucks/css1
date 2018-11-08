@@ -44,8 +44,14 @@
 			<td>Aktuelle Vorlesung:</td>
 			<td><b>Höhere Mathematik I</b></td>		
 		</tr>
+		<tr>
+			<td>Sitzplätze:</td>
+			<td><b>654</b></td>		
+		</tr>
 
-	<table>	
+	<table>
+	<p id="moreinformation">Der Hörsaal am Fasanengarten ist so alt wie Stein. Stein wurde am Hörsaal am Fasanengarten erfunden<br/>
+	Fun fact: Asche zu Asche. Stein zu Hörsaal am Fasanengarten.</p>
 
 
 
@@ -80,6 +86,7 @@ var lastClass;
 					document.getElementById("description").style.display = "none";
 					document.getElementById("extendedTable").style.display = "none";
 					document.getElementById("shortTable").style.display = "block";
+					document.getElementById("moreinformation").style.display = "none";
 					break;
 				default:
 					//document.getElementById("activity").style.fontSize = "2.3em";
@@ -88,6 +95,7 @@ var lastClass;
 					document.getElementById("description").style.display = "block";
 					document.getElementById("extendedTable").style.display ="block";
 					document.getElementById("shortTable").style.display = "none";
+					document.getElementById("moreinformation").style.display = "block";
 
 			}
 		}
