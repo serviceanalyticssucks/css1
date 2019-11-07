@@ -1,0 +1,108 @@
+<html>
+	<head>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.1.1/math.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="js/jactivity.js"></script>
+	<script src="js/deviceorientation.js"></script>
+	<script src="js/devicemotion.js"></script>
+	<script src="js/transformer.js"></script>
+	<script src="js/decisiontree_engine.js"></script>
+	<script src="js/validation.js"></script>
+	</head>
+<body>
+<div id="alert">Please pay attention to your surroundings!</div>
+
+<div class="content">
+	<p id="header">Hörsaal am Fasanengarten (50.34)</p>
+
+	<p id="description">Der Hörsaal am Fasanengarten ist so alt wie Stein. Stein wurde am Hörsaal am Fasanengarten erfunden<br/>
+	Fun fact: Asche zu Asche. Stein zu Hörsaal am Fasanengarten.</p>
+	
+	<table id="extendedTable">
+		<tr>
+			<td class="attribute">Aktuelle Vorlesung:  </td>
+			<td>Höhere Mathematik I</td>		
+		</tr>
+		<tr>
+
+		<tr>
+			<td class="attribute">Nachste Vorlesung:</td>
+			<td>Robotik I</td>		
+		</tr>
+		<tr>
+			<td class="attribute">Sitzplätze:</td>
+			<td>654</td>		
+		</tr>
+		<tr>
+			<td class="attribute">Rollstuhltauglich:  </td>
+			<td>ja</td>		
+		</tr>
+	<table>	
+	<table id="shortTable">
+		<tr>
+			<td>Aktuelle Vorlesung:</td>
+			<td><b>Höhere Mathematik I</b></td>		
+		</tr>
+		<tr>
+			<td>Sitzplätze:</td>
+			<td><b>654</b></td>		
+		</tr>
+
+	<table>
+	<p id="moreinformation">Der Hörsaal am Fasanengarten ist so alt wie Stein. Stein wurde am Hörsaal am Fasanengarten erfunden<br/>
+	Fun fact: Asche zu Asche. Stein zu Hörsaal am Fasanengarten.</p>
+
+
+
+	<!--<div class="activity" id="activity">Activity is not being tracked</div>-->
+
+	<div class="nav">
+	 <a href="/record.html">Record your own Data</a>
+	</div>
+</div>
+
+
+<script>
+function mean(values) {
+	var sum = values.reduce(function(a, b) { return a + b; });
+	return Math.floor(sum * 1000 / values.length);
+}
+function joinDimensions(dim1, meanDim1, dim2, meanDim2, dim3, meanDim3) {
+  return Math.sqrt((dim1 - meanDim1)**2+(dim2 - meanDim2)**2+(dim3 - meanDim3)**2)
+}
+	
+var lastClass;
+	var activityCallback = function(activity) {
+		console.log("react to classification which classify to: " + activity.result);
+		if (activity.result === lastClass || lastClass == null) {
+					//document.getElementById("activity").innerHTML = activity.result;
+					
+			switch (activity.result) {
+				case "walking":
+					//document.getElementById("activity").style.fontSize = "2.8em";
+					//document.getElementById("activity").style.fontWeight = "bold";
+					document.getElementById("alert").style.visibility = "visible";
+					document.getElementById("description").style.display = "none";
+					document.getElementById("extendedTable").style.display = "none";
+					document.getElementById("shortTable").style.display = "block";
+					document.getElementById("moreinformation").style.display = "none";
+					break;
+				default:
+					//document.getElementById("activity").style.fontSize = "2.3em";
+					//document.getElementById("activity").style.fontWeight = "normal";
+					document.getElementById("alert").style.visibility = "hidden";
+					document.getElementById("description").style.display = "block";
+					document.getElementById("extendedTable").style.display ="block";
+					document.getElementById("shortTable").style.display = "none";
+					document.getElementById("moreinformation").style.display = "block";
+
+			}
+		}
+		lastClass = activity.result;
+	}
+	//initialize classifier
+	var activityClassifier = new jActivity("", [deviceorientation, devicemotion], activityCallback, ["walking", "sitting"], 1000);
+</script>
+</body>
+</html>
